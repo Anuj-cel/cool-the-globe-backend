@@ -1,7 +1,19 @@
 require("dotenv").config()
 const express=require ("express")
+const mongoose=require("mongoose")
 const app=express();
 const port=5000;
+const connectDb=async()=>{
+    try{
+        mongoose.connect(process.env.MONGODB_URI)
+        console.log("Db is connected")
+    }
+    catch(err)
+    {
+        console.log("Db connection failed",err.message)
+    }
+}
+connectDb()
 app.use(express.json());
 app.get("/",(req,res)=>{
     const data=req.body;
