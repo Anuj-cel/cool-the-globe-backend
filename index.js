@@ -1,6 +1,7 @@
 require("dotenv").config()
 const express=require ("express")
 const mongoose=require("mongoose")
+const User=require("./models/User.js")
 const app=express();
 const port=5000;
 const connectDb=async()=>{
